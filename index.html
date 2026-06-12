@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro para Entrevista · BIU University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:'Helvetica Now Display';font-weight:700;font-style:normal;font-display:swap;
+  src:url('https://db.onlinewebfonts.com/c/04e6981992c0e2e7642af2074ebe3901?family=Helvetica+Now+Display+Bold') format('woff2');
+}
+:root{
+  --ink:#14264f;--navy:#1b3c7d;--navy-deep:#0f2a5e;--blue:#2f7fe0;--teal:#21c3b3;
+  --ink-80:rgba(20,38,79,.80);--ink-60:rgba(20,38,79,.58);--ink-40:rgba(20,38,79,.40);
+  --ink-14:rgba(20,38,79,.14);--ink-08:rgba(20,38,79,.08);
+  --paper:#fff;--bone:#f4f6fb;--bone-2:#eef2f9;--stage:#e7ebf3;--line:#dfe4ee;
+  --ok:#1d9d7a;--warn:#d8632b;
+  --font-heading:'Helvetica Now Display','Helvetica Neue',Arial,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --r-card:22px;--r-input:12px;--r-pill:9999px;--ease:cubic-bezier(0.22,1,0.36,1);
+  --shadow-card:0 18px 50px rgba(20,38,79,.10),0 2px 8px rgba(20,38,79,.05);
+  --doc-max:880px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--ink);
+  background:radial-gradient(1200px 600px at 50% -200px,rgba(33,195,179,.10),transparent 70%),var(--stage);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.6}
+
+/* Toolbar */
+.toolbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;
+  padding:12px clamp(16px,4vw,40px);background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.tb-brand{display:flex;align-items:center;gap:11px;margin-right:auto;min-width:0}
+.tb-brand img{height:30px;width:auto;display:block}
+.tb-brand span{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-60);border-left:1px solid var(--line);padding-left:11px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:600;font-size:.85rem;
+  border:0;border-radius:var(--r-pill);cursor:pointer;padding:10px 18px;white-space:nowrap;
+  transition:transform .18s var(--ease),filter .18s var(--ease),background .18s var(--ease),box-shadow .18s var(--ease)}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 4px 16px rgba(27,60,125,.28)}
+.btn-primary:hover{filter:brightness(1.08);transform:scale(1.03)}
+.btn-primary:active{transform:scale(.97)}
+.btn-ghost{background:var(--bone-2);color:var(--ink)}
+.btn-ghost:hover{filter:brightness(.97)}
+.btn-quiet{background:transparent;color:var(--ink-60);padding:10px 12px}
+.btn-quiet:hover{color:var(--ink);background:var(--ink-08)}
+.tb-link{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:var(--ink-60);text-decoration:none;padding:8px 10px;border-radius:10px}
+.tb-link:hover{color:var(--ink);background:var(--ink-08)}
+.tb-link svg{width:15px;height:15px}
+
+/* Document */
+.page{padding:clamp(20px,4vw,52px) clamp(14px,4vw,40px) 90px}
+.doc{max-width:var(--doc-max);margin:0 auto;background:var(--paper);border-radius:var(--r-card);box-shadow:var(--shadow-card);overflow:hidden}
+
+/* Masthead */
+.masthead{position:relative;padding:clamp(26px,4vw,42px) clamp(24px,4.5vw,56px) clamp(22px,3vw,30px);
+  background:radial-gradient(420px 220px at 100% 0%,rgba(33,195,179,.16),transparent 65%),
+    radial-gradient(520px 260px at -10% 120%,rgba(47,127,224,.12),transparent 60%),var(--bone);
+  border-bottom:1px solid var(--line)}
+.mh-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.mh-top img.logo{height:clamp(44px,7vw,60px);width:auto;display:block}
+.chip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 12px;color:var(--ink-60);font-weight:500;font-size:.74rem}
+.chip b{color:var(--ink);font-weight:700}
+.mh-title{margin-top:clamp(20px,3vw,28px)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:13px}
+.eyebrow .dot{width:8px;height:8px;border-radius:2px;background:var(--teal);box-shadow:3px 3px 0 var(--blue)}
+h1.title{font-family:var(--font-heading);font-weight:700;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.06;letter-spacing:-.015em;color:var(--ink);margin:0}
+.subtitle{margin:12px 0 0;font-size:clamp(.92rem,2vw,1.05rem);color:var(--ink-80);max-width:60ch;font-weight:500;font-style:italic}
+
+/* Steps */
+.steps{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:11px}
+.step .sdot{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.82rem;font-family:var(--font-heading)}
+.step.done .sdot{background:var(--teal);color:#06372f}
+.step.done .sdot svg{width:15px;height:15px}
+.step.active .sdot{background:var(--navy);color:#fff}
+.step .stext{display:flex;flex-direction:column;line-height:1.2}
+.step .stext .sk{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-40)}
+.step .stext .sv{font-size:.86rem;font-weight:600;color:var(--ink)}
+.step.done .stext .sv{color:var(--ink-60)}
+.step-line{flex:1 1 24px;height:2px;background:var(--line);min-width:18px;border-radius:2px}
+.step-line.fill{background:var(--teal)}
+
+/* Body / fields */
+.body{padding:clamp(24px,3.5vw,40px) clamp(24px,4.5vw,56px) clamp(28px,3.5vw,44px)}
+.summary{display:none;align-items:flex-start;gap:12px;margin:0 0 26px;background:#fff5f0;border:1.5px solid rgba(216,99,43,.35);border-radius:14px;padding:14px 18px}
+.summary.show{display:flex}
+.summary svg{flex:0 0 auto;color:var(--warn);width:20px;height:20px;margin-top:1px}
+.summary .sb{font-size:.85rem;color:var(--ink-80)}
+.summary .sb b{color:var(--warn)}
+
+section.fset{margin-bottom:34px}
+.fset-head{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+.fset-ic{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:var(--bone);border:1px solid var(--line);display:grid;place-items:center;color:var(--navy)}
+.fset-ic svg{width:20px;height:20px}
+.fset-head h2{font-family:var(--font-heading);font-weight:700;margin:0;font-size:clamp(1.05rem,2.3vw,1.28rem);letter-spacing:-.01em;color:var(--ink)}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 18px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.col-2{grid-column:span 2}
+.field label{font-size:.78rem;font-weight:600;color:var(--ink-80);display:flex;align-items:center;gap:6px}
+.field label .req{color:var(--warn);font-weight:700}
+.field .opt{color:var(--ink-40);font-weight:500}
+.control{font-family:var(--font-body);font-size:.92rem;color:var(--ink);background:var(--bone);
+  border:1.5px solid transparent;border-radius:var(--r-input);padding:11px 14px;width:100%;outline:none;
+  transition:border-color .18s var(--ease),background .18s var(--ease),box-shadow .18s var(--ease)}
+.control::placeholder{color:var(--ink-40)}
+.control:hover{background:var(--bone-2)}
+.control:focus{background:#fff;border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,127,224,.14)}
+select.control{appearance:none;cursor:pointer;padding-right:38px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2314264f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center}
+textarea.control{resize:vertical;min-height:92px;line-height:1.55}
+.field.invalid .control{border-color:var(--warn);background:#fff;box-shadow:0 0 0 4px rgba(216,99,43,.10)}
+.err{font-size:.72rem;color:var(--warn);font-weight:600;display:none;align-items:center;gap:5px}
+.field.invalid .err{display:flex}
+
+/* Platform cards */
+.pick-group{display:flex;flex-direction:column;gap:7px}
+.pick-group .gl{font-size:.78rem;font-weight:600;color:var(--ink-80);display:flex;align-items:center;gap:6px}
+.pick-group .gl .req{color:var(--warn);font-weight:700}
+.pick-group .gl .opt{color:var(--ink-40);font-weight:500;text-transform:none;letter-spacing:0}
+.platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.platforms.invalid .plat{border-color:var(--warn)}
+.plat{position:relative;cursor:pointer}
+.plat input{position:absolute;opacity:0;width:0;height:0}
+.plat .pcard{display:flex;align-items:center;gap:13px;padding:15px 16px;border-radius:14px;border:1.5px solid var(--line);background:#fff;transition:all .16s var(--ease)}
+.plat .picon{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--bone);color:var(--navy)}
+.plat .picon svg{width:21px;height:21px}
+.plat .pmeta{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.plat .pmeta .pn{font-size:.92rem;font-weight:600;color:var(--ink)}
+.plat .pmeta .pd{font-size:.74rem;color:var(--ink-40)}
+.plat .pcheck{margin-left:auto;flex:0 0 auto;width:22px;height:22px;border-radius:7px;border:2px solid var(--ink-14);display:grid;place-items:center;color:#fff;transition:all .16s var(--ease)}
+.plat .pcheck svg{width:13px;height:13px;opacity:0;transform:scale(.6);transition:all .16s var(--ease)}
+.plat:hover .pcard{border-color:var(--ink-40)}
+.plat input:checked + .pcard{border-color:var(--teal);background:rgba(33,195,179,.06)}
+.plat input:checked + .pcard .picon{background:var(--teal);color:#06372f}
+.plat input:checked + .pcard .pcheck{background:var(--teal);border-color:var(--teal)}
+.plat input:checked + .pcard .pcheck svg{opacity:1;transform:scale(1)}
+
+/* Day chips */
+.days{display:flex;flex-wrap:wrap;gap:10px}
+.days.invalid{outline:none}
+.day{position:relative;cursor:pointer}
+.day input{position:absolute;opacity:0;width:0;height:0}
+.day span{display:block;padding:10px 18px;border-radius:var(--r-pill);background:var(--bone);border:1.5px solid transparent;
+  font-size:.86rem;font-weight:600;color:var(--ink-60);transition:all .16s var(--ease);user-select:none}
+.day:hover span{color:var(--ink)}
+.day input:checked + span{background:var(--navy);color:#fff;border-color:var(--navy)}
+.days.invalid .day span{border-color:var(--warn)}
+
+/* Note */
+.note{display:flex;gap:14px;align-items:flex-start;border-radius:16px;padding:18px 20px;margin:6px 0 0;
+  background:rgba(33,195,179,.08);border:1px solid rgba(33,195,179,.25)}
+.note .ni{flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid rgba(33,195,179,.3);display:grid;place-items:center;color:#108577}
+.note .ni svg{width:20px;height:20px}
+.note p{margin:0;font-size:.86rem;color:var(--ink-80);line-height:1.62}
+.note p b{color:var(--ink)}
+
+/* Actions */
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.actions .spacer{flex:1 1 auto}
+.btn-submit{justify-content:center;gap:11px;background:linear-gradient(135deg,var(--teal),#15a695);color:#06372f;
+  padding:16px 30px;font-size:1rem;font-weight:700;border-radius:var(--r-pill);box-shadow:0 10px 28px rgba(33,195,179,.32)}
+.btn-submit svg{width:19px;height:19px}
+.btn-submit:hover{filter:brightness(1.05);transform:scale(1.02)}
+.btn-submit:active{transform:scale(.98)}
+.save-note{font-size:.74rem;color:var(--ink-40);display:flex;align-items:center;gap:6px}
+
+/* Footer */
+.doc-foot{padding:20px clamp(24px,4.5vw,56px) 28px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;justify-content:space-between;font-size:.76rem;color:var(--ink-60)}
+.doc-foot b{color:var(--ink);font-weight:600}
+.doc-foot a{color:var(--navy);text-decoration:none;font-weight:600}
+.doc-foot .fline{display:flex;align-items:center;gap:8px}
+.doc-foot .fline svg{width:14px;height:14px;color:var(--navy);flex:0 0 auto}
+
+/* Overlay */
+.overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(15,42,94,.45);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:24px}
+.overlay.show{display:flex;animation:fade .3s var(--ease)}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.ov-card{background:#fff;border-radius:24px;max-width:480px;width:100%;padding:40px 36px;text-align:center;box-shadow:0 30px 80px rgba(15,42,94,.4);animation:pop .4s var(--ease)}
+@keyframes pop{from{transform:translateY(20px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+.ov-card .seal-ic{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--teal),var(--blue));box-shadow:0 10px 30px rgba(33,195,179,.4)}
+.ov-card h3{font-family:var(--font-heading);font-weight:700;font-size:1.5rem;margin:0 0 10px;color:var(--ink)}
+.ov-card p{font-size:.92rem;color:var(--ink-60);margin:0 0 8px;line-height:1.6}
+.ov-card .folio{font-family:var(--font-heading);font-size:1.05rem;color:var(--navy);font-weight:700;letter-spacing:.04em;margin:14px 0 24px}
+.ov-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+
+@media(max-width:720px){
+  .grid{grid-template-columns:1fr}
+  .field.col-2{grid-column:span 1}
+  .platforms{grid-template-columns:1fr}
+  .tb-brand span{display:none}
+  .actions{flex-direction:column;align-items:stretch}
+  .btn-submit{width:100%}
+}
+@media print{
+  @page{size:A4;margin:14mm 13mm}
+  body{background:#fff}
+  .toolbar,.actions,.summary,.no-print,.overlay{display:none !important}
+  .page{padding:0}.doc{box-shadow:none;border-radius:0;max-width:none}
+  .masthead{background:#fff;border-bottom:2px solid var(--ink)}
+  .control,.plat .pcard,.day span,.note,.fset-ic{background:#fff !important;border:1px solid #b9c2d4 !important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div class="tb-brand">
+    <img src="assets/biu-logo.png" alt="BIU University">
+    <span>Registro</span>
+  </div>
+  <a class="tb-link" href="Consentimiento Informado BIU.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Volver al consentimiento
+  </a>
+  <button class="btn btn-primary" id="btnSubmitTop" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    Enviar registro
+  </button>
+</div>
+
+<div class="page">
+<form class="doc" id="regForm" novalidate>
+
+  <header class="masthead">
+    <div class="mh-top">
+      <img class="logo" src="assets/biu-logo.png" alt="Broward International University">
+      <span class="chip">IRB · <b>BIU</b></span>
+    </div>
+    <div class="mh-title">
+      <div class="eyebrow"><span class="dot"></span> BIU Research · Estudio Doctoral</div>
+      <h1 class="title">Formulario de Registro para Entrevista</h1>
+      <p class="subtitle">Impacto de la IA en el Desempeño de las Empresas Dominicanas</p>
+    </div>
+    <div class="steps">
+      <div class="step done">
+        <div class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="stext"><span class="sk">Paso 1</span><span class="sv">Consentimiento aceptado</span></div>
+      </div>
+      <div class="step-line fill"></div>
+      <div class="step active">
+        <div class="sdot">2</div>
+        <div class="stext"><span class="sk">Paso 2</span><span class="sv">Complete su registro</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <div class="summary no-print" id="summary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div class="sb">Faltan campos por completar. Revisa los apartados marcados en <b>naranja</b>.</div>
+    </div>
+
+    <!-- Perfil profesional -->
+    <section class="fset">
+      <div class="fset-head">
+        <div class="fset-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h2>Perfil profesional</h2>
+      </div>
+      <div class="grid">
+        <div class="field" data-req>
+          <label>Cargo / Posición <span class="req">*</span></label>
+          <input class="control" name="cargo" type="text" placeholder="Ej. Director de Operaciones">
+          <span class="err">Indica tu cargo o posición.</span>
+        </div>
+        <div class="field" data-req>
+          <label>Sector empresarial <span class="req">*</span></label>
+          <select class="control" name="sector">
+            <option value="">Seleccione su sector…</option>
+            <option>Manufactura / Alimentos</option>
+            <option>Comercio / Retail</option>
+            <option>Servicios financieros / Banca</option>
+            <option>Tecnología / Software</option>
+            <option>Telecomunicaciones</option>
+            <option>Salud / Farmacéutica</option>
+            <option>Turismo / Hotelería</option>
+            <option>Logística / Transporte</option>
+            <option>Construcción / Inmobiliaria</option>
+            <option>Educación</option>
+            <option>Energía / Servicios públicos</option>
+            <option>Agroindustria</option>
+            <option>Otro</option>
+          </select>
+          <span class="err">Selecciona un sector.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coordinación -->
+    <section class="fset">
+      <div class="fset-head">
+        <div class="fset-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h2>Coordinación de la entrevista</h2>
+      </div>
+
+      <div class="pick-group" data-req-platform style="margin-bottom:22px">
+        <div class="gl">Plataforma(s) disponibles para la entrevista <span class="req">*</span> <span class="opt">(puede seleccionar una o ambas)</span></div>
+        <div class="platforms" id="platforms">
+          <label class="plat">
+            <input type="checkbox" name="plataforma" value="Zoom">
+            <span class="pcard">
+              <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></span>
+              <span class="pmeta"><span class="pn">Zoom</span><span class="pd">Videollamada</span></span>
+              <span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            </span>
+          </label>
+          <label class="plat">
+            <input type="checkbox" name="plataforma" value="Microsoft Teams">
+            <span class="pcard">
+              <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+              <span class="pmeta"><span class="pn">Microsoft Teams</span><span class="pd">Videollamada</span></span>
+              <span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            </span>
+          </label>
+        </div>
+        <span class="err" id="platErr">Selecciona al menos una plataforma.</span>
+      </div>
+
+      <div class="pick-group" data-req-days style="margin-bottom:22px">
+        <div class="gl">Días de disponibilidad <span class="req">*</span></div>
+        <div class="days" id="days">
+          <label class="day"><input type="checkbox" name="dia" value="Lunes"><span>Lunes</span></label>
+          <label class="day"><input type="checkbox" name="dia" value="Martes"><span>Martes</span></label>
+          <label class="day"><input type="checkbox" name="dia" value="Miércoles"><span>Miércoles</span></label>
+          <label class="day"><input type="checkbox" name="dia" value="Jueves"><span>Jueves</span></label>
+          <label class="day"><input type="checkbox" name="dia" value="Viernes"><span>Viernes</span></label>
+          <label class="day"><input type="checkbox" name="dia" value="Sábado"><span>Sábado</span></label>
+        </div>
+        <span class="err" id="dayErr">Selecciona al menos un día.</span>
+      </div>
+
+      <div class="grid">
+        <div class="field col-2">
+          <label>Horario preferido <span class="opt">(opcional)</span></label>
+          <select class="control" name="horario">
+            <option value="">Seleccione un horario…</option>
+            <option>8:00 am – 10:00 am</option>
+            <option>10:00 am – 12:00 pm</option>
+            <option>12:00 pm – 2:00 pm</option>
+            <option>2:00 pm – 4:00 pm</option>
+            <option>4:00 pm – 6:00 pm</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comentarios -->
+    <section class="fset">
+      <div class="fset-head">
+        <div class="fset-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h2>Comentarios u observaciones</h2>
+      </div>
+      <div class="field col-2">
+        <label>Información adicional <span class="opt">(opcional)</span></label>
+        <textarea class="control" name="comentarios" placeholder="Información adicional que desee compartir con el investigador…"></textarea>
+      </div>
+    </section>
+
+    <div class="note">
+      <span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+      <p><b>Confidencialidad garantizada.</b> Su nombre, correo electrónico y número de WhatsApp serán utilizados únicamente para coordinar la fecha y hora de la entrevista. En los reportes, publicaciones y resultados finales, su identidad será protegida: no se publicará su nombre, empresa ni ningún dato que permita identificarle. Sus datos de contacto no serán compartidos con terceros bajo ninguna circunstancia. Estudio aprobado por el IRB de Broward International University.</p>
+    </div>
+
+    <div class="actions no-print">
+      <span class="save-note" id="saveNote"></span>
+      <div class="spacer"></div>
+      <button class="btn btn-submit" id="btnSubmit" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        ENVIAR REGISTRO
+      </button>
+    </div>
+  </div>
+
+  <footer class="doc-foot">
+    <span><b>Investigador:</b> Ulises Ramírez Fondeur · Doctorado en Administración de Empresas · BIU</span>
+    <span class="fline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +1 809-979-0205 · <a href="mailto:ulisesfranciscoramirezfondeur@student.biu.us">ulisesfranciscoramirezfondeur@student.biu.us</a>
+    </span>
+  </footer>
+</form>
+</div>
+
+<div class="overlay" id="okOverlay">
+  <div class="ov-card">
+    <div class="seal-ic">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+    <h3>Registro enviado</h3>
+    <p>Gracias. Hemos recibido su registro. En un momento será dirigido al enlace de la entrevista.</p>
+    <div class="folio" id="okFolio">REG-2026-000000</div>
+    <div class="ov-actions">
+      <button class="btn btn-ghost" id="okPrint" type="button">Guardar comprobante (PDF)</button>
+      <button class="btn btn-primary" id="okClose" type="button">Ir a la entrevista</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $=function(s){return document.querySelector(s);};
+  var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s));};
+  var STORE='biu_reg_v1';
+  var INTERVIEW_URL='https://example.com/entrevista'; /* TODO: reemplazar por el enlace real de la entrevista (Zoom/Teams o landing) */
+  var redirectTimer=null;
+  var form=$('#regForm');
+
+  /* Folio */
+  var f=localStorage.getItem(STORE+'_folio');
+  if(!f){ f='REG-2026-'+Math.floor(100000+Math.random()*899999); localStorage.setItem(STORE+'_folio',f); }
+  $('#okFolio').textContent=f;
+
+  /* Persistence */
+  function save(){
+    var d={};
+    $$('input,select,textarea').forEach(function(el){
+      if(!el.name) return;
+      if(el.type==='checkbox'){ if(!d[el.name])d[el.name]=[]; if(el.checked)d[el.name].push(el.value); }
+      else d[el.name]=el.value;
+    });
+    try{ localStorage.setItem(STORE,JSON.stringify(d)); }catch(e){}
+  }
+  function load(){
+    var d; try{ d=JSON.parse(localStorage.getItem(STORE)||'{}'); }catch(e){ d={}; }
+    $$('input,select,textarea').forEach(function(el){
+      if(!el.name||d[el.name]==null) return;
+      if(el.type==='checkbox'){ if(d[el.name].indexOf(el.value)>-1) el.checked=true; }
+      else el.value=d[el.name];
+    });
+  }
+  load();
+
+  /* Validation helpers */
+  function emailOk(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function validate(){
+    var bad=null;
+    $$('.field[data-req]').forEach(function(fl){
+      var c=fl.querySelector('.control'); var v=(c.value||'').trim(); var ok=!!v;
+      if(ok && fl.getAttribute('data-type')==='email') ok=emailOk(v);
+      fl.classList.toggle('invalid',!ok); if(!ok&&!bad) bad=fl;
+    });
+    var pg=$('#platforms'); var pOk=!!pg.querySelector('input:checked');
+    pg.classList.toggle('invalid',!pOk); $('#platErr').style.display=pOk?'none':'flex';
+    if(!pOk&&!bad) bad=$('[data-req-platform]');
+    var dg=$('#days'); var dOk=!!dg.querySelector('input:checked');
+    dg.classList.toggle('invalid',!dOk); $('#dayErr').style.display=dOk?'none':'flex';
+    if(!dOk&&!bad) bad=$('[data-req-days]');
+    return bad;
+  }
+
+  form.addEventListener('input',function(e){
+    if(e.target.matches('.control')){
+      var fl=e.target.closest('.field');
+      if(fl&&fl.classList.contains('invalid')){
+        var v=(e.target.value||'').trim(); var ok=!!v;
+        if(e.target.type==='email') ok=emailOk(v);
+        if(ok) fl.classList.remove('invalid');
+      }
+    }
+    save();
+  });
+  form.addEventListener('change',function(e){
+    if(e.target.name==='plataforma'){ var pg=$('#platforms'); if(pg.querySelector('input:checked')){pg.classList.remove('invalid');$('#platErr').style.display='none';} }
+    if(e.target.name==='dia'){ var dg=$('#days'); if(dg.querySelector('input:checked')){dg.classList.remove('invalid');$('#dayErr').style.display='none';} }
+    save();
+  });
+
+  function submit(){
+    var bad=validate();
+    if(bad){
+      $('#summary').classList.add('show');
+      window.scrollTo({top:bad.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'});
+      return;
+    }
+    $('#summary').classList.remove('show');
+    save();
+    $('#okOverlay').classList.add('show');
+    redirectTimer=setTimeout(function(){ window.location.href=INTERVIEW_URL; }, 2400);
+  }
+  form.addEventListener('submit',function(e){ e.preventDefault(); submit(); });
+  $('#btnSubmitTop').addEventListener('click',submit);
+
+  $('#okPrint').addEventListener('click',function(){ clearTimeout(redirectTimer); $('#okOverlay').classList.remove('show'); setTimeout(function(){window.print();},200); });
+  $('#okClose').addEventListener('click',function(){ clearTimeout(redirectTimer); window.location.href=INTERVIEW_URL; });
+  $('#okOverlay').addEventListener('click',function(e){ if(e.target===this){ clearTimeout(redirectTimer); this.classList.remove('show'); } });
+})();
+</script>
+</body>
+</html>
